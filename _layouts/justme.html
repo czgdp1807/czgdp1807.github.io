@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+    Forty by HTML5 UP
+    html5up.net | @ajlkn
+    Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+  -->
+<html>
+
+  {% include head.html %}
+
+  <body>
+
+    {% include header.html %}
+
+
+    <!-- Main -->
+    <div id="main" class="alt">
+
+        <section id="banner" class="style2">
+            <div class="inner">
+                <span class="image">
+                    <img src="{{ site.baseurl }}/{{ page.image }}" alt="">
+                </span>
+                <header class="major">
+
+                    <h1>{{ page.title }}</h1>
+
+                </header>
+                <div class="content">
+
+                    {{ page.description }}
+
+                </div>
+            </div>
+        </section>
+
+
+      <!-- One -->
+      <section id="one">
+
+	<div class="inner">
+          {% for post in site.posts %}
+      {% if post.title != 404 %}
+      {% if post.just_me %}
+	  <header class="content">
+	    <a href="{{ site.baseurl }}/{{ post.suburl }}"><h3>{{ post.title }}</h3></a>
+	  </header>
+	  {% if post.image %}<span class="image main"><img src="{{ site.baseurl }}/{{ post.image }}" alt="" /></span>{% endif %}
+      {% endif %}
+      {% endif %}
+          {% endfor %}
+	</div>
+      </section>
+
+    </div>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>
